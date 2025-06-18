@@ -9,6 +9,7 @@ import {
   NavbarMenuToggle,
 } from '@heroui/react';
 import React, { useState, useRef } from 'react';
+import { getAssetUrl } from '../../utils/getAssetUrl';
 
 import './Header.css';
 
@@ -46,7 +47,7 @@ const Header: React.FC = () => {
               }}
             >
               <img
-                src="/logo.svg"
+                src={getAssetUrl('logo.svg')}
                 alt="Severino logo"
                 className="h-5 w-auto"
               />
