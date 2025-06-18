@@ -2,6 +2,7 @@ import { Button, Card, Input } from '@heroui/react';
 import React from 'react';
 
 import './NewsletterForm.css';
+import { getAssetUrl } from '../../utils/getAssetUrl';
 
 const NewsletterForm: React.FC = () => (
   <section
@@ -74,7 +75,7 @@ const NewsletterForm: React.FC = () => (
       </form>
       <img
         className="newsletter--img"
-        src="newsletter_tools.svg"
+        src={getAssetUrl('newsletter_tools.svg')}
         alt="Ilustração com ferramentas"
       />
     </Card>

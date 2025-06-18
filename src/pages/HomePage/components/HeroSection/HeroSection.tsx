@@ -1,5 +1,6 @@
 import { Card } from '@heroui/react';
 import AppStoreButtons from '../../../../components/AppStoreButtons';
+import { getAssetUrl } from '../../../../utils/getAssetUrl';
 
 const HeroSection: React.FC = () => {
   return (
@@ -20,7 +21,7 @@ const HeroSection: React.FC = () => {
       >
         <div className="mb-4">
           <img
-            src="hero-illustration.svg"
+            src={getAssetUrl('hero-illustration.svg')}
             alt="Ilustração de contratação de serviços"
             className="h-32 w-32"
           />

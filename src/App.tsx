@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import AboutUsPage from './pages/AboutUsPage';
 import ServicesPage from './pages/ServicesPage';
+import { getAssetUrl } from './utils/getAssetUrl';
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/sobre-nos" element={<AboutUsPage />} />
-          <Route path="/servicos" element={<ServicesPage />} />
+          <Route path={getAssetUrl('/')} element={<HomePage />} />
+          <Route path={getAssetUrl('/sobre-nos')} element={<AboutUsPage />} />
+          <Route path={getAssetUrl('/servicos')} element={<ServicesPage />} />
         </Routes>
       </BrowserRouter>
       <Footer />

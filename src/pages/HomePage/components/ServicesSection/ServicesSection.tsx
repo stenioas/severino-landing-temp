@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@heroui/react';
 
 import './ServiceSection.css';
+import { getAssetUrl } from '../../../../utils/getAssetUrl';
 
 const whyChooseUsItems = [
   {
@@ -108,7 +109,7 @@ const IdealService = () => (
     }}
   >
     <img
-      src="/img/firefly_black_woman.png"
+      src={getAssetUrl('/img/firefly_black_woman.png')}
       alt="Firefly Black Woman"
       style={{
         position: 'absolute',
@@ -169,7 +170,7 @@ const ProfessionalEfficiency = () => (
     role="listitem"
   >
     <img
-      src="/img/professional_painter.png"
+      src={getAssetUrl('/img/professional_painter.png')}
       alt="Profissional de pintura"
       style={{
         position: 'absolute',

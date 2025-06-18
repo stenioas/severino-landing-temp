@@ -9,19 +9,19 @@ import {
   NavbarMenuToggle,
 } from '@heroui/react';
 import React, { useState, useRef } from 'react';
-import { getAssetUrl } from '../../utils/getAssetUrl';
 
 import './Header.css';
+import { getAssetUrl } from '../../utils/getAssetUrl';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
-    { label: 'Início', href: '/' },
-    { label: 'Sobre nós', href: '/sobre-nos' },
-    { label: 'Serviços', href: '/servicos' },
-    { label: 'Contato', href: '/contato' },
+    { label: 'Início', href: getAssetUrl('/') },
+    { label: 'Sobre nós', href: getAssetUrl('/sobre-nos') },
+    { label: 'Serviços', href: getAssetUrl('/servicos') },
+    { label: 'Contato', href: getAssetUrl('/contato') },
   ];
 
   return (

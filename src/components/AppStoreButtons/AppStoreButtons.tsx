@@ -5,6 +5,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@heroui/react';
+import { getAssetUrl } from '../../utils/getAssetUrl';
 
 const AppStoreButtons = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -25,7 +26,7 @@ const AppStoreButtons = () => {
         radius="sm"
         style={{ backgroundColor: '#000000', padding: '6px 12px' }}
       >
-        <img src="play_store.svg" alt="Play Store" />
+        <img src={getAssetUrl('play_store.svg')} alt="Play Store" />
       </Button>
 
       <Popover
@@ -41,7 +42,7 @@ const AppStoreButtons = () => {
             radius="sm"
             style={{ backgroundColor: '#7B7B7B', padding: '6px 12px' }}
           >
-            <img src="app_store.svg" alt="App Store" />
+            <img src={getAssetUrl('app_store.svg')} alt="App Store" />
           </Button>
         </PopoverTrigger>
         <PopoverContent>

@@ -1,32 +1,43 @@
 import React from 'react';
 import ValueCard from '../ValueCard';
 
-import handshake from '/handshake.svg';
-import diamond from '/diamond.svg';
-import smartphone from '/smartphone.svg';
-import diversity from '/diversity.svg';
+import { getAssetUrl } from '../../../../utils/getAssetUrl';
 
 const ValueCardProps = [
   {
-    icon: <img src={handshake} alt="Relações de confiança" />,
+    icon: (
+      <img src={getAssetUrl('/handshake.svg')} alt="Relações de confiança" />
+    ),
     title: 'Relações de confiança',
     description:
       'Selecionamos e conectamos profissionais comprometidos com a qualidade, para que você tenha sempre a segurança de contar com um serviço bem feito.',
   },
   {
-    icon: <img src={diamond} alt="Compromisso com a qualidade" />,
+    icon: (
+      <img
+        src={getAssetUrl('/diamond.svg')}
+        alt="Compromisso com a qualidade"
+      />
+    ),
     title: 'Compromisso com a qualidade',
     description:
       'Acreditamos que um bom serviço vai além de cumprir uma tarefa, ele deve surpreender, resolver de verdade e deixar uma boa impressão sempre para o cliente e prestador.',
   },
   {
-    icon: <img src={smartphone} alt="Simplicidade que resolve" />,
+    icon: (
+      <img
+        src={getAssetUrl('/smartphone.svg')}
+        alt="Simplicidade que resolve"
+      />
+    ),
     title: 'Simplicidade que resolve',
     description:
       'Nossa plataforma foi criada para facilitar sua vida. Agende, acompanhe e resolva tudo de forma rápida e descomplicada como deve ser.',
   },
   {
-    icon: <img src={diversity} alt="Valorização de pessoas" />,
+    icon: (
+      <img src={getAssetUrl('/diversity.svg')} alt="Valorização de pessoas" />
+    ),
     title: 'Valorização de pessoas',
     description:
       'Acreditamos no poder da colaboração. Criamos oportunidades para prestadores crescerem e para clientes encontrarem exatamente o que precisar.',

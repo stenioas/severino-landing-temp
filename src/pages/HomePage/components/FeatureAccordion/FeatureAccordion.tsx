@@ -3,6 +3,7 @@ import { Accordion, AccordionItem, Selection } from '@heroui/react';
 
 import './FeatureAccordion.css';
 import { ChevronRightIcon, ChevronDownIcon } from '../../../../icons';
+import { getAssetUrl } from '../../../../utils/getAssetUrl';
 
 const features = [
   {
@@ -139,7 +140,7 @@ const FeatureAccordion: React.FC = () => {
             >
               {feature.content}
               <img
-                src={feature.img}
+                src={getAssetUrl(feature.img)}
                 style={{
                   marginTop: '1.5rem',
                   marginLeft: 'auto',

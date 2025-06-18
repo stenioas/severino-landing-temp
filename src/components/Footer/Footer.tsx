@@ -1,5 +1,6 @@
 import { Link } from '@heroui/react';
 import React from 'react';
+import { getAssetUrl } from '../../utils/getAssetUrl';
 
 const Footer: React.FC = () => (
   <footer
@@ -14,9 +15,13 @@ const Footer: React.FC = () => (
   >
     <div className="flex flex-col">
       <div className="flex flex-col items-start" style={{ gap: '1.5rem' }}>
-        <img src="/logo.svg" alt="Severino logo" className="h-5 w-auto" />
+        <img
+          src={getAssetUrl('logo.svg')}
+          alt="Severino logo"
+          className="h-5 w-auto"
+        />
         <div className="flex items-center gap-2">
-          <img src="email.svg" alt="Email" />
+          <img src={getAssetUrl('email.svg')} alt="Email" />
           <Link
             href="mailto:contato@severino.app.br"
             style={{
@@ -62,7 +67,7 @@ const Footer: React.FC = () => (
               aria-label="Instagram"
               className="text-[#096C76] hover:text-[#075a61]"
             >
-              <img src="instagram.svg" alt="Instagram" />
+              <img src={getAssetUrl('instagram.svg')} alt="Instagram" />
             </Link>
           </div>
           <div
@@ -81,7 +86,7 @@ const Footer: React.FC = () => (
               aria-label="Facebook"
               className="text-[#096C76] hover:text-[#075a61]"
             >
-              <img src="facebook.svg" alt="Facebook" />
+              <img src={getAssetUrl('facebook.svg')} alt="Facebook" />
             </Link>
           </div>
           <div
@@ -101,7 +106,7 @@ const Footer: React.FC = () => (
               aria-label="LinkedIn"
               className="text-[#096C76] hover:text-[#075a61]"
             >
-              <img src="linkedin.svg" alt="LinkedIn" />
+              <img src={getAssetUrl('linkedin.svg')} alt="LinkedIn" />
             </Link>
           </div>
         </div>

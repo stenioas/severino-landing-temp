@@ -1,36 +1,53 @@
 import React from 'react';
 import StepCard from '../StepCard';
 
-import mysteryIcon from '/mystery.svg';
-import engineeringIcon from '/engineering.svg';
-import listAltAddIcon from '/list_alt_add.svg';
-import listAltCheckIcon from '/list_alt_check.svg';
+import { getAssetUrl } from '../../../../utils/getAssetUrl';
 
 const steps = [
   {
     stepNumber: 1,
-    icon: <img src={mysteryIcon} alt="Pesquise o serviço que deseja" />,
+    icon: (
+      <img
+        src={getAssetUrl('/mystery.svg')}
+        alt="Pesquise o serviço que deseja"
+      />
+    ),
     title: 'Pesquise o serviço que deseja',
     description:
       'Precisa de um eletricista, encanador ou pintor? Nossa busca inteligente conecta você rapidamente aos melhores serviços e prestadores, sempre próximos de você. As melhores opções com rapidez e confiança em um clique.',
   },
   {
     stepNumber: 2,
-    icon: <img src={engineeringIcon} alt="Escolha o tipo de profissional" />,
+    icon: (
+      <img
+        src={getAssetUrl('/engineering.svg')}
+        alt="Escolha o tipo de profissional"
+      />
+    ),
     title: 'Escolha o tipo de profissional',
     description:
       'Navegue pelas categorias de serviços e selecione o profissional ideal para resolver sua demanda. Seja para construção ou pequenos reparos, aqui você encontra as melhores opções sempre a sua disposição.',
   },
   {
     stepNumber: 3,
-    icon: <img src={listAltAddIcon} alt="Preenchimento dos dados" />,
+    icon: (
+      <img
+        src={getAssetUrl('/list_alt_add.svg')}
+        alt="Preenchimento dos dados"
+      />
+    ),
     title: 'Preenchimento dos dados',
     description:
       'Informe os detalhes do serviço, escolha o melhor horário e finalize sua solicitação em poucos passos. Assim, o profissional recebe todas as informações necessárias para atender você com rapidez , eficiência e segurança.',
   },
   {
     stepNumber: 4,
-    icon: <img src={listAltCheckIcon} alt="Aprovação da solicitação" />,
+    icon: (
+      <img
+        src={getAssetUrl('/list_alt_check.svg')}
+        alt="Aprovação da solicitação"
+      />
+    ),
     title: 'Aprovação da solicitação',
     description:
       'Sua solicitação foi enviada com sucesso?! Agora é só aguardar o prestador analisar os detalhes e confirmar a disponibilidade. Assim que ele aprovar, a solicitação vai para a seção ”aguardando início” na seção serviços.',
