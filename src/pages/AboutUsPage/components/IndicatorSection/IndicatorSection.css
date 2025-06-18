@@ -1,0 +1,91 @@
+.indicator-section--card {
+  background: #fafafa;
+  color: #fff;
+}
+
+.indicator-section--card:hover {
+  background-color: #096c76;
+}
+
+.indicator-section--card:hover .indicator-section--card-header {
+  color: #ffffff;
+}
+
+.indicator-section--card:hover .indicator-section--card-divider {
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+.indicator-section--card:hover .indicator-section--card-body-value {
+  color: #9cf0cd;
+}
+
+.indicator-section--card:hover .indicator-section--card-body-description {
+  color: #ffffff;
+}
+
+.indicator-section--card:hover .indicator-section--card-footer {
+  color: #9cf0cd;
+}
+
+.indicator-section--card-divider {
+  height: 0.5px;
+  background-color: rgba(0, 0, 0, 0.28);
+}
+
+.indicator-section--card-header {
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.0625rem;
+  color: #1c1c1c;
+  padding: 2rem 1.125rem 1.25rem 1.125rem;
+}
+
+.indicator-section--card-body {
+  max-height: 15rem;
+  padding: 1.75rem 1.125rem 0 1.125rem;
+}
+
+.indicator-section--card-body-value {
+  font-size: 7.375rem;
+  line-height: 80%;
+  letter-spacing: -0.25rem;
+  color: #096c76;
+}
+
+.indicator-section--card-body-description {
+  font-size: 0.875rem;
+  letter-spacing: -0.0625rem;
+  color: #7b7b7b;
+  margin-top: 1.25rem;
+}
+
+.indicator-section--card-footer {
+  font-size: 0.75rem;
+  letter-spacing: -0.0625rem;
+  color: #096c76;
+  margin-top: 0.5rem;
+  padding: 1.25rem 1.125rem;
+}
+
+.indicator-section--indicators {
+  margin-top: 3.5rem;
+  display: flex;
+  gap: 1.125rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 1rem;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.indicator-section--indicators-arrow-right {
+  width: 2.625rem;
+  height: 2.625rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}

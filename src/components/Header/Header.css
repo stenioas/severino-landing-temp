@@ -1,0 +1,22 @@
+.header--menu-item-chevron {
+  opacity: 0;
+  visibility: hidden;
+  animation: none;
+}
+
+@keyframes showChevron {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(2px);
+  }
+}
+
+a:hover > .header--menu-item-chevron {
+  animation: showChevron 0.25s ease-in-out forwards;
+}

@@ -1,0 +1,12 @@
+.servicesection--tag {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #fff;
+  transition: background ease-in-out 200ms;
+}
+
+.servicesection--tag:hover {
+  background: #fff;
+  color: #1c1c1c;
+  cursor: default;
+}
