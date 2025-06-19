@@ -127,8 +127,8 @@ const IndicatorSection: React.FC = () => (
       Desde do início, os dados guiam a nossa jornada
     </p>
     <div className="indicator-section--indicators">
-      {indicators.map((item) => (
-        <IndicatorCard {...item} />
+      {indicators.map((item, index) => (
+        <IndicatorCard {...item} key={`${item.title}-${index}`} />
       ))}
     </div>
     <div
