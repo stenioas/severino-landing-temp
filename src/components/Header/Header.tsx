@@ -1,6 +1,5 @@
 import { ChevronRightIcon } from '../../icons';
 import {
-  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -9,20 +8,27 @@ import {
   NavbarMenuToggle,
 } from '@heroui/react';
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './Header.css';
-import { getAssetUrl } from '../../utils/getAssetUrl';
+// import { getAssetUrl } from '../../utils/getAssetUrl';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const menuItems = [
-    { label: 'Início', href: getAssetUrl('/') },
-    { label: 'Sobre nós', href: getAssetUrl('/sobre-nos') },
-    { label: 'Serviços', href: getAssetUrl('/servicos') },
-    { label: 'Contato', href: getAssetUrl('/contato') },
+    { label: 'Início', path: '/' },
+    { label: 'Sobre nós', path: '/sobre-nos' },
+    { label: 'Serviços', path: '/servicos' },
+    { label: 'Contato', path: '/contato' },
   ];
+
+  const handleNavigate = (path: string) => {
+    setIsMenuOpen(false);
+    navigate(path);
+  };
 
   return (
     <Navbar
@@ -47,7 +53,7 @@ const Header: React.FC = () => {
               }}
             >
               <img
-                src={getAssetUrl('logo.svg')}
+                src={'logo.svg'}
                 alt="Severino logo"
                 className="h-5 w-auto"
               />
@@ -63,10 +69,10 @@ const Header: React.FC = () => {
 
       <NavbarMenu style={{ paddingLeft: 0, paddingRight: 0, gap: 0 }}>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              href={item.href}
-              size="lg"
+          <NavbarMenuItem key={`${item.label}-${index}`}>
+            <button
+              type="button"
+              onClick={() => handleNavigate(item.path)}
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -74,8 +80,12 @@ const Header: React.FC = () => {
                 fontSize: '1.25rem',
                 letterSpacing: '-0.0625rem',
                 color: '#1C1C1C',
+                border: 'none',
+                background: 'none',
                 borderBottom: '0.5px solid #D4D4D4',
                 padding: '1rem',
+                cursor: 'pointer',
+                textAlign: 'left',
               }}
             >
               {item.label}
@@ -83,7 +93,7 @@ const Header: React.FC = () => {
                 size={16}
                 className="header--menu-item-chevron"
               />
-            </Link>
+            </button>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>

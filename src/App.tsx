@@ -1,24 +1,23 @@
 import { HeroUIProvider } from '@heroui/react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AboutUsPage from './pages/AboutUsPage';
 import ServicesPage from './pages/ServicesPage';
-import { getAssetUrl } from './utils/getAssetUrl';
 
 function App() {
   return (
     <HeroUIProvider>
-      <Header />
-      <BrowserRouter>
+      <HashRouter>
+        <Header />
         <Routes>
-          <Route path={getAssetUrl('/')} element={<HomePage />} />
-          <Route path={getAssetUrl('/sobre-nos')} element={<AboutUsPage />} />
-          <Route path={getAssetUrl('/servicos')} element={<ServicesPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/sobre-nos" element={<AboutUsPage />} />
+          <Route path="/servicos" element={<ServicesPage />} />
         </Routes>
-      </BrowserRouter>
-      <Footer />
+        <Footer />
+      </HashRouter>
     </HeroUIProvider>
   );
 }
