@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Accordion, AccordionItem, Selection } from '@heroui/react';
 
 import './FeatureAccordion.css';
@@ -39,6 +39,14 @@ const features = [
 ];
 
 const FeatureAccordion: React.FC = () => {
+  // Pré-carregar imagens ao montar o componente
+  useEffect(() => {
+    features.forEach((feature) => {
+      const img = new window.Image();
+      img.src = getAssetUrl(feature.img);
+    });
+  }, []);
+
   const [selectedKeys, setSelectedKeys] = useState(new Set(['1']));
 
   const handleSelectionChange = (keys: Selection) => {
