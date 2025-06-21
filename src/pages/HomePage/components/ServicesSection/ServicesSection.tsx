@@ -1,6 +1,8 @@
 import React from 'react';
-import { Button } from '@heroui/react';
+import { Button, Card, CardFooter } from '@heroui/react';
+import Lottie from 'lottie-react';
 
+import animation from '../../../../../public/animations/choose_service_animation.json'; // ajuste o caminho conforme necessário
 import './ServiceSection.css';
 import { getAssetUrl } from '../../../../utils/getAssetUrl';
 
@@ -93,17 +95,18 @@ const WhyChooseUs = () => (
 );
 
 const IdealService = () => (
-  <div
+  <Card
     style={{
       position: 'relative',
       borderRadius: '1rem',
-      padding: '1.75rem 0.875rem 2.25rem 0.875rem',
+      padding: '1.75rem 0.875rem 1rem 0.875rem',
       width: '304px',
       minHeight: '226px',
       margin: '0 auto',
       color: '#fff',
       display: 'flex',
       flexDirection: 'column',
+      justifyContent: 'space-between',
       alignItems: 'flex-start',
       boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
     }}
@@ -132,7 +135,7 @@ const IdealService = () => (
         height: '100%',
         borderRadius: '1rem',
         background:
-          'linear-gradient(135deg, #000000 -23.51%, rgba(0, 0, 0, 0.627198) 22.7%, rgba(0, 0, 0, 0) 57.6%)',
+          'linear-gradient(135deg, #3d3d3d -23.51%, rgba(10, 10, 10, 0.627198) 22.7%, rgba(0, 0, 0, 0) 57.6%)',
         zIndex: 2,
         pointerEvents: 'none',
       }}
@@ -148,7 +151,26 @@ const IdealService = () => (
       Encontre o serviço
       <br /> ideal para você
     </h3>
-  </div>
+    <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+      <CardFooter
+        style={{
+          position: 'relative',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '9.125rem',
+          height: '2.125rem',
+          borderRadius: '1rem',
+          zIndex: 2,
+          backdropFilter: 'blur(3px) saturate(1.5)',
+          WebkitBackdropFilter: 'blur(3px) saturate(1.5)',
+          backgroundColor: 'rgb(10, 10, 10, 0.38)',
+        }}
+      >
+        <Animation />
+      </CardFooter>
+    </div>
+  </Card>
 );
 
 const ProfessionalEfficiency = () => (
@@ -238,6 +260,14 @@ const ProfessionalEfficiency = () => (
       Mais detalhes
     </Button>
   </div>
+);
+
+const Animation = () => (
+  <Lottie
+    animationData={animation}
+    loop={true}
+    style={{ position: 'absolute', width: '9.125rem' }}
+  />
 );
 
 const ServicesSection: React.FC = () => (
