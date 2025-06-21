@@ -17,7 +17,7 @@ const HeroSection: React.FC = () => {
         className="flex flex-col items-center justify-center"
         shadow="none"
         aria-label="Hero section"
-        style={{ padding: '2rem 1rem', backgroundColor: '#096C76' }}
+        style={{ padding: '2rem 1rem 1.5rem', backgroundColor: '#096C76' }}
       >
         <div className="mb-4">
           <img
