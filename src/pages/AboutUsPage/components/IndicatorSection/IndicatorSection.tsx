@@ -18,7 +18,7 @@ const indicators = [
     description:
       'das empresas e prestadores de serviços estão presentes no municípios brasileiros, com concentração em áreas urbanas',
     source: 'IBGE',
-    minWidth: '17rem',
+    unit: '%',
   },
   {
     title: 'Demanda contínua',
@@ -26,7 +26,7 @@ const indicators = [
     description:
       'das residências e edifícios precisam de algum tipo de manutenção ou pequeno reparo pelo menos uma vez ao ano',
     source: 'ABNT',
-    minWidth: '17rem',
+    unit: '%',
   },
   {
     title: 'Crescimento no setor',
@@ -34,7 +34,7 @@ const indicators = [
     description:
       'de todos os estabelecimentos ativos no país no setor de manutenção e reparos são micro e pequenas empresas',
     source: 'Sebrae, Receita Federal',
-    minWidth: '17rem',
+    unit: '%',
   },
   {
     title: 'Profissionais cadastrados',
@@ -42,15 +42,15 @@ const indicators = [
     description:
       'entre 2013 e 2022 foi o aumento de cadastros de empresas que atuam no setor de manutenção e reparos',
     source: 'APC Plataformas',
-    minWidth: '17rem',
+    unit: '%',
   },
   {
     title: 'Potencial de mercado',
     value: '60',
     description:
-      'é considerado o tamanho do mercado no Brasil e o aumento da terceirização desses serviços, com potencial de crescimento',
+      'é o valor de mercado anual no Brasil, especialmente na área de manutenção e reparos',
     source: 'APC Plataformas',
-    minWidth: '17rem',
+    unit: 'B',
   },
 ];
 
@@ -59,7 +59,7 @@ interface IndicatorCardProps {
   value: string;
   description: string;
   source?: string;
-  minWidth?: string;
+  unit: string;
 }
 
 const IndicatorCard = ({
@@ -67,9 +67,13 @@ const IndicatorCard = ({
   value,
   description,
   source,
-  minWidth = '17rem',
+  unit,
 }: IndicatorCardProps) => (
-  <Card shadow="none" className="indicator-section--card" style={{ minWidth }}>
+  <Card
+    shadow="none"
+    className="indicator-section--card"
+    style={{ minWidth: '17rem' }}
+  >
     <CardHeader className="indicator-section--card-header">{title}</CardHeader>
     <Divider className="indicator-section--card-divider" />
     <CardBody className="indicator-section--card-body">
@@ -82,7 +86,7 @@ const IndicatorCard = ({
             letterSpacing: '-0.25rem',
           }}
         >
-          %
+          {unit}
         </span>
       </div>
       <p className="indicator-section--card-body-description">{description}</p>
@@ -122,6 +126,7 @@ const IndicatorSection: React.FC = () => (
         color: '#1C1C1C',
         textAlign: 'center',
         marginTop: '1rem',
+        padding: '0 2rem',
       }}
     >
       Desde do início, os dados guiam a nossa jornada
