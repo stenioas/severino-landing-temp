@@ -1,5 +1,6 @@
 import { ChevronRightIcon } from '../../icons';
 import {
+  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -70,7 +71,7 @@ const Header: React.FC = () => {
       <NavbarMenu style={{ paddingLeft: 0, paddingRight: 0, gap: 0 }}>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item.label}-${index}`}>
-            <button
+            <Link
               type="button"
               onClick={() => handleNavigate(item.path)}
               style={{
@@ -93,7 +94,7 @@ const Header: React.FC = () => {
                 size={16}
                 className="header--menu-item-chevron"
               />
-            </button>
+            </Link>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
