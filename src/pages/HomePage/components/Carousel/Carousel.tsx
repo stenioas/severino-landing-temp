@@ -9,11 +9,11 @@ const data = [
     alt: 'Viemos para simplificar',
   },
   {
-    url: getAssetUrl('img/hero/2_choose_service.png'),
+    url: getAssetUrl('img/hero/2_our_services.png'),
     alt: 'Viemos para simplificar',
   },
   {
-    url: getAssetUrl('img/hero/3_best_services.png'),
+    url: getAssetUrl('img/hero/3_choose_service.png'),
     alt: 'Viemos para simplificar',
   },
   {
@@ -21,7 +21,7 @@ const data = [
     alt: 'Viemos para simplificar',
   },
   {
-    url: getAssetUrl('img/hero/5_realtime_service_values.png'),
+    url: getAssetUrl('img/hero/5_last_services_total.png'),
     alt: 'Viemos para simplificar',
   },
 ];

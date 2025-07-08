@@ -9,12 +9,15 @@
 }
 
 .slide {
+  position: absolute;
   border-radius: 0.5rem;
-  height: 100%;
+  height: 90%;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
 }
 
 .slide-hidden {
-  display: none;
+  opacity: 0;
 }
 
 .indicators {
