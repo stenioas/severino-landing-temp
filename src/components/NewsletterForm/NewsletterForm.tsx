@@ -1,9 +1,18 @@
-import { Button, Card, Input } from '@heroui/react';
+import {
+  Button,
+  Card,
+  Input,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@heroui/react';
 import React, { useState, useEffect } from 'react';
 
 import './NewsletterForm.css';
 import { getAssetUrl } from '../../utils/getAssetUrl';
 import { saveNewsletterEmail } from '../../api/newsletterApi';
+import { CheckIcon } from '@heroicons/react/20/solid';
+import { XMarkIcon } from '@heroicons/react/16/solid';
 
 // Hook para detectar breakpoint
 const useBreakpoint = () => {
@@ -26,9 +35,37 @@ const useBreakpoint = () => {
 const NewsletterForm: React.FC = () => {
   const isDesktop = useBreakpoint();
   const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<
+    'idle' | 'sending' | 'success' | 'error'
+  >('idle');
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (status === 'success' || status === 'error') {
+      timer = setTimeout(() => setStatus('idle'), 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [status]);
 
   const handleSubmit = () => {
-    saveNewsletterEmail(email);
+    if (!email) return;
+    setStatus('sending');
+    saveNewsletterEmail(email)
+      .then((response) => {
+        if (response.status === 200) {
+          setStatus('success');
+          setEmail('');
+        } else {
+          setStatus('error');
+        }
+      })
+      .catch(() => {
+        setStatus('error');
+      });
+  };
+
+  const handlePopoverClose = () => {
+    setStatus('success');
   };
 
   return (
@@ -47,36 +84,78 @@ const NewsletterForm: React.FC = () => {
           Não perca nenhuma novidade! Receba atualizações do app, promoções
           exclusivas, novos serviços, parcerias incríveis e muito mais.
         </p>
-        <form
-          className="newsletter--form"
-          onSubmit={(e) => {
-            handleSubmit();
-            e.preventDefault();
+
+        <Popover
+          placement="top-start"
+          shadow="none"
+          className="dark"
+          classNames={{
+            content: status === 'error' && 'newsletter--popover-error',
           }}
+          radius="sm"
+          isOpen={status === 'success' || status === 'error'}
         >
-          <Input
-            type="email"
-            variant="faded"
-            placeholder="Digite seu e-mail"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            endContent={
+          <PopoverTrigger>
+            <form
+              className="newsletter--form"
+              onSubmit={(e) => {
+                handleSubmit();
+                e.preventDefault();
+              }}
+            >
+              <Input
+                type="email"
+                variant="faded"
+                placeholder="Digite seu e-mail"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                endContent={
+                  <Button
+                    className={`newsletter--send-button ${(status === 'sending' || status === 'success') && 'newsletter--send-button-sending'}`}
+                    radius="sm"
+                    type="submit"
+                    isLoading={status === 'sending'}
+                    spinnerPlacement="end"
+                    disabled={status === 'sending' || status === 'success'}
+                    endContent={
+                      status === 'success' && (
+                        <CheckIcon color="#ACE2CC" height={22} width={22} />
+                      )
+                    }
+                  >
+                    {status === 'sending'
+                      ? 'Enviando'
+                      : status === 'success'
+                        ? 'Enviada'
+                        : 'Enviar'}
+                  </Button>
+                }
+                classNames={{
+                  input: 'newsletter--input',
+                  inputWrapper: 'newsletter--inputWrapper',
+                }}
+              />
+            </form>
+          </PopoverTrigger>
+          <PopoverContent>
+            <span
+              className={`newsletter--popover-content-${status === 'error' ? 'error' : 'success'}`}
+            >
+              {status === 'error'
+                ? 'Falha no envio. Por favor, tente mais tarde.'
+                : 'Obrigado! Grandes novidades estão a caminho.'}
               <Button
-                className="newsletter--send-button"
-                radius="sm"
-                type="submit"
-              >
-                Enviar
-              </Button>
-            }
-            classNames={{
-              input: 'newsletter--input',
-              inputWrapper: 'newsletter--inputWrapper',
-            }}
-          />
-        </form>
+                isIconOnly
+                radius="full"
+                className="newsletter--popover-content-close"
+                endContent={<XMarkIcon className="w-4 h-4" color="#FFF" />}
+                onPress={handlePopoverClose}
+              />
+            </span>
+          </PopoverContent>
+        </Popover>
         <img
           className="newsletter--img"
           src={getAssetUrl(
