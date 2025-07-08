@@ -25,6 +25,12 @@ const AppStoreButtons = () => {
       <Button
         radius="sm"
         style={{ backgroundColor: '#000000', padding: '6px 12px' }}
+        onPress={() => {
+          window.open(
+            'https://play.google.com/store/apps/details?id=com.severino&hl=pt_BR',
+            '_blank',
+          );
+        }}
       >
         <img src={getAssetUrl('play_store.svg')} alt="Play Store" />
       </Button>
