@@ -14,7 +14,7 @@ export const saveNewsletterEmail = async (email: string) => {
         withCredentials: true,
       },
     );
-    return response.data;
+    return response;
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
       throw error.response?.data || error.message;
