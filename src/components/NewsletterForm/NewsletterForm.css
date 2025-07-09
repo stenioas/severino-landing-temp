@@ -40,7 +40,6 @@
 
 .newsletter--form {
   width: 100%;
-  min-width: 25rem !important;
   max-width: 25rem !important;
   margin-top: 1.5rem !important;
   opacity: 1 !important;
