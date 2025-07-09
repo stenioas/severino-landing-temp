@@ -15,7 +15,7 @@ const Header: React.FC = () => {
     >
       <NavbarContent>
         <NavbarBrand>
-          <Link href="/" className="header--logo-link">
+          <Link href={getAssetUrl('/')} className="header--logo-link">
             <img
               src={getAssetUrl('logo.svg')}
               alt="Severino App logo"
