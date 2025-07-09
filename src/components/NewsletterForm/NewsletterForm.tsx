@@ -115,7 +115,7 @@ const NewsletterForm: React.FC = () => {
                 }}
                 endContent={
                   <Button
-                    className={`newsletter--send-button ${status === 'sending' || status === 'success' ? 'newsletter--send-button-sending' : null}`}
+                    className={`newsletter--send-button ${status === 'sending' && 'newsletter--send-button-sending'} ${status === 'success' && 'newsletter--send-button-success'}`}
                     radius="sm"
                     type="submit"
                     isLoading={status === 'sending'}
