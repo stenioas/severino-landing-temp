@@ -42,7 +42,7 @@ const NewsletterForm: React.FC = () => {
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (status === 'success' || status === 'error') {
-      timer = setTimeout(() => setStatus('idle'), 3000);
+      timer = setTimeout(() => setStatus('idle'), 6000);
     }
     return () => clearTimeout(timer);
   }, [status]);
@@ -65,7 +65,7 @@ const NewsletterForm: React.FC = () => {
   };
 
   const handlePopoverClose = () => {
-    setStatus('success');
+    setStatus('idle');
   };
 
   return (
@@ -94,6 +94,8 @@ const NewsletterForm: React.FC = () => {
           }}
           radius="sm"
           isOpen={status === 'success' || status === 'error'}
+          shouldCloseOnBlur={false}
+          triggerScaleOnOpen={false}
         >
           <PopoverTrigger>
             <form
@@ -113,12 +115,11 @@ const NewsletterForm: React.FC = () => {
                 }}
                 endContent={
                   <Button
-                    className={`newsletter--send-button ${(status === 'sending' || status === 'success') && 'newsletter--send-button-sending'}`}
+                    className={`newsletter--send-button ${status === 'sending' || status === 'success' ? 'newsletter--send-button-sending' : null}`}
                     radius="sm"
                     type="submit"
                     isLoading={status === 'sending'}
                     spinnerPlacement="end"
-                    disabled={status === 'sending' || status === 'success'}
                     endContent={
                       status === 'success' && (
                         <CheckIcon color="#ACE2CC" height={22} width={22} />
